@@ -1,38 +1,21 @@
 import React from "react";
-import "./app.scss";
-import Directory from "./components/Directory/Directory";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "./components/Navigaion/Navigation";
+import Home from "./components/Routes/Home/Home";
+import SignIn from "./components/Routes/signin/SignIn";
+
+const Shop = () => {
+  return <h1>Hello Shop component .</h1>;
+};
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: "images/hats.png",
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: "images/jackets.png",
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: "images/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "womens",
-      imageUrl: "images/womens.png",
-    },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: "images/men.png",
-    },
-  ];
   return (
-    <>
-      <Directory categories={categories} />
-    </>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="signin" element={<SignIn />} />
+      </Route>
+    </Routes>
   );
 };
 
