@@ -21,6 +21,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
@@ -29,13 +30,13 @@ provider.setCustomParameters({
 export const auth = getAuth();
 // eslint-disable-next-line no-unused-vars
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 export const db = getFirestore();
 export const createUserDocumentFromAuth = async (userAuth) => {
   const userDocref = doc(db, "users", userAuth.uid);
   console.log(userDocref);
   const userSnapshot = await getDoc(userDocref);
-  console.log(userSnapshot);
-  console.log(userSnapshot.exists());
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
