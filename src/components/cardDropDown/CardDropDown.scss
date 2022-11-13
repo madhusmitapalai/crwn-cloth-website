@@ -21,10 +21,14 @@
     height: 330px;
     display: flex;
     flex-direction: column;
- overflow: auto;
+ overflow: scroll;
     scroll-behavior: smooth;
     scrollbar-width: 0px;
   }
+  .cart-items::-webkit-scrollbar {
+    width: 1em;
+  }
+  
 
   button {
     margin-top: auto;
